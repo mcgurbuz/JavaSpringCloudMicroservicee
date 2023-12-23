@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="ticket")
-@EqualsAndHashCode(of = {"id"})
+@EqualsAndHashCode(of = {"id"}) //İki nesnenin equals olmasının sağlayan şey İD fieldıdır diyoruz.
 @NoArgsConstructor
 @AllArgsConstructor
 public class Ticket extends BaseEntityModel {
@@ -17,7 +17,7 @@ public class Ticket extends BaseEntityModel {
     @Getter
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id")
+    @Column(name = "id") //32 yada 64 karakterli bir String değer verecek bize UUID standartında
     private String id;
 
     @Getter
@@ -33,6 +33,8 @@ public class Ticket extends BaseEntityModel {
     @Getter
     @Setter
     @Column(name = "assignee",length = 64) //Diğer Account tarafının refi
+    //Önemli Assigne account bağlanacak fakat ben join işlemi yapmayacağım.
+    // Mikroservis bilmiyor. Bu servis diğer servise Eureka üzerinden assigne doğru mu validation bu şekilde yapacağız.
     private String assignee;
 
     @Getter
@@ -42,7 +44,7 @@ public class Ticket extends BaseEntityModel {
 
     @Getter
     @Setter
-    @Enumerated
+    @Enumerated   //Enumdur. ORDINAL dersek 0 1 2 diye tutar. Default ORDINAL
     @Column(name = "priority_type")
     private PriorityType priorityType; //enum
 
