@@ -1,0 +1,2 @@
+//Tüm docker compose işlemlerini bir yerden yapacağız. Buna başla dediğimde tüm hepsinde başlayacak. Account Cassanda DBsi olacak örneğin
+//Fakat Account Serviste yml koyup start etmek mikroservis mimarisine ters olduğu için bir yerden başlatacağız.
